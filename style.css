@@ -1,0 +1,29 @@
+:root {
+    --base: #FFF666;
+    --rotate: 0deg;
+    --blur: 0px;
+    --opacity: 1.0;
+    --margin-top:0px;
+    --margin-left:0px;
+    --margin-right:0px;
+}
+img {
+    transform: rotate(var(--rotate));
+    background: var(--base);
+    filter: blur(var(--blur));
+    opacity: var(--opacity);
+    margin-top: var(--margin-top);
+    margin-left: var(--margin-left);
+    margin-right: var(--margin-right);
+}
+.hl {
+    color: var(--base);
+}
+html {
+    font-size: 20px;
+    background: var(--base);
+}
+body {
+    text-align: center;
+}
+

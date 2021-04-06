@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>CSS Variables Excersise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Update CSS variables with <span class="hl">JS</span></h2>
+
+    <div class="controls">
+      <label for="rotate">Rotate:</label>
+      <input type="range" name="rotate" min="0" max="360" value="0" data-sizing="deg">
+
+      <label for="opacity">Opacity:</label>
+      <input type="range" name="opacity" min="0.0" max="1.0" value="1.0" data-sizing="1.0">
+
+      <label for="blur">Blur:</label>
+      <input type="range" name="blur" min="0" max="100" value="0" data-sizing="px">
+
+      <label for="margin-top">Margin top:</label>
+      <input type="range" name="margin-top" min="0" max="200" value="0" data-sizing="px">
+
+      <label for="margin-left">Margin left:</label>
+      <input type="range" name="margin-left" min="0" max="200" value="0" data-sizing="px">
+
+      <label for="margin-right">Margin right:</label>
+      <input type="range" name="margin-right" min="0" max="200" value="0" data-sizing="px">
+
+      <label for="base">Base color:</label>
+      <input type="color" name="base" value="#FFF666">
+    </div>
+
+<img src="nebula.jpg" alt="Helix-Nebula" width="700px">
+
+<script>
+const inputs = document.querySelectorAll(".controls input"); // first we determine with which elements of the document we are going to work.
+
+function handlerUpdate(){
+  const suffix = this.dataset.sizing || ""; // with "data-" attribute we can add custom values Which can be used in any part of our code once we declare them as variables.
+  document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix); // now having the suffix, you can edit css properties using the setProperty method.
+}
+
+inputs.forEach(input => input.addEventListener("change", handlerUpdate)); // Here we add a listener to set the moment which our function will be called.
+inputs.forEach(input => input.addEventListener("mousemove", handlerUpdate));
+</script>
+
+</body>
+</html>
